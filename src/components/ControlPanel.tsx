@@ -228,7 +228,7 @@ export function ControlPanel() {
           label="Full width"
         />
 
-        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pr: 3 }}>
           <TextField
             select
             size="small"
@@ -249,13 +249,13 @@ export function ControlPanel() {
             max={400}
             step={8}
             onChange={(_, v) => set('minWidth', (v as number) === 0 ? null : (v as number))}
-            sx={{ flex: 1, ml: 1.5, mr: 10 }}
+            sx={{ flex: 1, ml: 1.5 }}
           />
         </Stack>
       </Section>
 
         <Section title="Shape" defaultExpanded={false}>
-        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pr: 3 }}>
           <TextField
             select
             size="small"
@@ -275,13 +275,13 @@ export function ControlPanel() {
             max={32}
             step={1}
             onChange={(_, v) => set('borderRadius', v as number)}
-            sx={{ flex: 1, ml: 1.5, mr: 10 }}
+            sx={{ flex: 1, ml: 1.5 }}
           />
         </Stack>
       </Section>
 
         <Section title="Elevation & Effects" defaultExpanded={false}>
-        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pr: 3 }}>
           <TextField
             select
             size="small"
@@ -301,7 +301,7 @@ export function ControlPanel() {
             max={24}
             step={1}
             onChange={(_, v) => set('elevation', v as number)}
-            sx={{ flex: 1, ml: 1.5, mr: 10 }}
+            sx={{ flex: 1, ml: 1.5 }}
           />
         </Stack>
         <FormControlLabel
