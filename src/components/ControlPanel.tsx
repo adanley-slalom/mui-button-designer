@@ -164,7 +164,7 @@ export function ControlPanel() {
             />
             {config.loadingShowText && (
               <Box>
-                <Typography variant="caption" color="text.secondary" display="block" mb={1}>
+                <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
                   Loading icon position
                 </Typography>
                 <ToggleButtonGroup

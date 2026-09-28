@@ -31,16 +31,10 @@ import Bell from '@mui/icons-material/Notifications';
 import Calendar from '@mui/icons-material/DateRange';
 import Clock from '@mui/icons-material/Schedule';
 import Copy from '@mui/icons-material/ContentCopy';
-import Download2 from '@mui/icons-material/GetApp';
-import FileDownload from '@mui/icons-material/FileDownload';
-import Download3 from '@mui/icons-material/Download';
 import Filter from '@mui/icons-material/FilterList';
-import Gear from '@mui/icons-material/Settings';
 import MapPin from '@mui/icons-material/LocationOn';
 import Phone from '@mui/icons-material/Phone';
-import Plus from '@mui/icons-material/Add';
 import Refresh from '@mui/icons-material/Refresh';
-import Trash from '@mui/icons-material/Delete';
 import Block from '@mui/icons-material/Block';
 
 // Outlined icons
