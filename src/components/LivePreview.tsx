@@ -26,12 +26,14 @@ export function LivePreview() {
 
   // Map Google Font names to font-family values
   const fontFamilyMap: Record<string, string> = {
-    'Roboto': '"Roboto", sans-serif',
+    'Figtree': '"Figtree", sans-serif',
     'Inter': '"Inter", sans-serif',
-    'Poppins': '"Poppins", sans-serif',
-    'Open Sans': '"Open Sans", sans-serif',
-    'Raleway': '"Raleway", sans-serif',
+    'Lexend': '"Lexend", sans-serif',
     'Montserrat': '"Montserrat", sans-serif',
+    'Open Sans': '"Open Sans", sans-serif',
+    'Poppins': '"Poppins", sans-serif',
+    'Raleway': '"Raleway", sans-serif',
+    'Roboto': '"Roboto", sans-serif',
     'Work Sans': '"Work Sans", sans-serif',
   };
 
