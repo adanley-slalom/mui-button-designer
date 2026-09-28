@@ -179,17 +179,13 @@ export default function App() {
           position="static"
           elevation={0}
         >
-          <Toolbar sx={{ py: 3, px: 4 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Box>
-                <Typography variant="h6" sx={{ fontWeight: 800, color: 'white', letterSpacing: '-0.5px' }}>
-                  MUI Button Designer
-                </Typography>
-                <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 500 }}>
-                  Customize MUI buttons and export the code
-                </Typography>
-              </Box>
-            </Box>
+          <Toolbar sx={{ py: 3, px: 4, justifyContent: 'space-between' }}>
+            <Typography variant="h6" sx={{ fontWeight: 800, color: 'white', letterSpacing: '-0.5px' }}>
+              MUI Button Designer
+            </Typography>
+            <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 500 }}>
+              Customize MUI buttons and export the code
+            </Typography>
           </Toolbar>
         </AppBar>
 
