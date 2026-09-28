@@ -1,13 +1,8 @@
-import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Chip from '@mui/material/Chip';
 import CircularProgress from '@mui/material/CircularProgress';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
 import MuiButton from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import type { Theme } from '@mui/material/styles';
@@ -16,10 +11,11 @@ import { useButtonConfigStore } from '../store/useButtonConfigStore';
 import { getIconByName } from '../constants/icons';
 import { getThemePaletteColor, canvasBackground } from '../utils/themeColors';
 import { contrastRatio, contrastLevel } from '../utils/contrast';
+import { useColorMode } from '../context/ColorModeContext';
 
 export function LivePreview() {
   const config = useButtonConfigStore((s) => s.config);
-  const [canvas, setCanvas] = useState<'light' | 'dark'>('light');
+  const { mode: canvas } = useColorMode();
 
   const startIcon = getIconByName(config.startIcon, config.iconStyle);
   const endIcon = getIconByName(config.endIcon, config.iconStyle);
@@ -94,7 +90,7 @@ export function LivePreview() {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#ffffff',
+        backgroundColor: 'background.paper',
       }}
     >
       <Stack
@@ -105,35 +101,18 @@ export function LivePreview() {
           height: 70,
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '2px solid #f3f4f6',
-          background: 'linear-gradient(135deg, #f8f7ff 0%, #f0f9ff 100%)',
+          borderBottom: '2px solid',
+          borderColor: 'divider',
+          background: (theme) =>
+            theme.palette.mode === 'dark'
+              ? 'linear-gradient(135deg, #23233066 0%, #1c2b3366 100%)'
+              : 'linear-gradient(135deg, #f8f7ff 0%, #f0f9ff 100%)',
           flexShrink: 0,
         }}
       >
         <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, color: '#6366f1' }}>
           Live Preview
         </Typography>
-        <ToggleButtonGroup
-          value={canvas}
-          exclusive
-          size="small"
-          onChange={(_, v) => v && setCanvas(v)}
-          sx={{
-            '& .MuiToggleButton-root': {
-              borderColor: '#e0e0e0',
-              '&.Mui-selected': {
-                backgroundColor: '#f0f0f0',
-              },
-            },
-          }}
-        >
-          <ToggleButton value="light" title="Light mode">
-            <LightModeIcon fontSize="small" />
-          </ToggleButton>
-          <ToggleButton value="dark" title="Dark mode">
-            <DarkModeIcon fontSize="small" />
-          </ToggleButton>
-        </ToggleButtonGroup>
       </Stack>
 
       <Box
@@ -146,7 +125,8 @@ export function LivePreview() {
           transition: 'background-color 0.2s ease',
           m: 3,
           borderRadius: 2,
-          border: '1px solid #e0e0e0',
+          border: '1px solid',
+          borderColor: 'divider',
           boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
         }}
       >
@@ -201,8 +181,9 @@ export function LivePreview() {
         sx={{
           px: 3,
           py: 2,
-          borderTop: '1px solid #e0e0e0',
-          backgroundColor: '#f9f9f9',
+          borderTop: '1px solid',
+          borderColor: 'divider',
+          backgroundColor: 'action.hover',
           alignItems: 'center',
           flexShrink: 0,
         }}
