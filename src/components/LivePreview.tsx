@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import Chip from '@mui/material/Chip';
+import CircularProgress from '@mui/material/CircularProgress';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import MuiButton from '@mui/material/Button';
@@ -41,14 +42,17 @@ export function LivePreview() {
   const commonProps = {
     color: config.colorMode === 'theme' ? config.color : undefined,
     size: config.size,
-    disabled: config.disabled,
-    loading: config.loading,
+    disabled: config.disabled || config.loading,
     disableRipple: config.disableRipple,
     sx,
   } as const;
 
   // IconButton has no `variant`/`fullWidth` props; only Button supports them.
   const buttonOnlyProps = { variant: config.variant, fullWidth: config.fullWidth } as const;
+
+  // Loading spinner - scale based on button size
+  const spinnerSize = config.size === 'small' ? 16 : config.size === 'large' ? 24 : 20;
+  const createSpinner = () => <CircularProgress size={spinnerSize} sx={{ color: 'inherit' }} />;
 
   // Contrast: bg = solid fill for contained, else canvas background.
   const bgHex =
@@ -108,7 +112,9 @@ export function LivePreview() {
             {...commonProps}
             aria-label={config.ariaLabel || undefined}
           >
-            {startIcon || endIcon ? (
+            {config.loading ? (
+              createSpinner()
+            ) : startIcon || endIcon ? (
               (() => {
                 const Icon = (startIcon ?? endIcon)!.Component;
                 return <Icon />;
@@ -119,11 +125,29 @@ export function LivePreview() {
           <MuiButton
             {...commonProps}
             {...buttonOnlyProps}
-            startIcon={startIcon ? <startIcon.Component /> : undefined}
-            endIcon={endIcon ? <endIcon.Component /> : undefined}
+            startIcon={
+              config.loading && config.loadingShowText && config.loadingPosition === 'start'
+                ? createSpinner()
+                : startIcon
+                  ? <startIcon.Component />
+                  : undefined
+            }
+            endIcon={
+              config.loading && config.loadingShowText && config.loadingPosition === 'end'
+                ? createSpinner()
+                : endIcon
+                  ? <endIcon.Component />
+                  : undefined
+            }
             aria-label={config.ariaLabel || undefined}
           >
-            {config.label}
+            {config.loading && !config.loadingShowText ? (
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                {createSpinner()}
+              </Box>
+            ) : (
+              config.label
+            )}
           </MuiButton>
         )}
       </Box>

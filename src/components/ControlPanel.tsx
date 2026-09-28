@@ -9,6 +9,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import Checkbox from '@mui/material/Checkbox';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -150,6 +151,36 @@ export function ControlPanel() {
           control={<Switch checked={config.loading} onChange={(e) => set('loading', e.target.checked)} />}
           label="Loading"
         />
+        {config.loading && (
+          <Stack spacing={1.5} sx={{ pl: 2, borderLeft: '2px solid', borderColor: 'divider' }}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={config.loadingShowText}
+                  onChange={(e) => set('loadingShowText', e.target.checked)}
+                />
+              }
+              label="Show text while loading"
+            />
+            {config.loadingShowText && (
+              <Box>
+                <Typography variant="caption" color="text.secondary" display="block" mb={1}>
+                  Loading icon position
+                </Typography>
+                <ToggleButtonGroup
+                  value={config.loadingPosition}
+                  exclusive
+                  size="small"
+                  onChange={(_, v) => v && set('loadingPosition', v)}
+                  fullWidth
+                >
+                  <ToggleButton value="start">Start</ToggleButton>
+                  <ToggleButton value="end">End</ToggleButton>
+                </ToggleButtonGroup>
+              </Box>
+            )}
+          </Stack>
+        )}
       </Section>
 
       <Section title="Size & Spacing" defaultExpanded={false}>

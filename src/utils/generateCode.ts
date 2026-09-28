@@ -56,7 +56,7 @@ function buildSxEntries(config: ButtonConfig): string[] {
 
 function buildProps(config: ButtonConfig, startIcon: ReturnType<typeof getIconByName> | undefined, endIcon: ReturnType<typeof getIconByName> | undefined, sxEntries: string[]): string[] {
   const props: string[] = [];
-  const { variant, colorMode, color, size, disabled, loading, fullWidth, disableRipple, ariaLabel } =
+  const { variant, colorMode, color, size, disabled, loading, loadingShowText, loadingPosition, fullWidth, disableRipple, ariaLabel } =
     config;
 
   // IconButton has no `variant`/`fullWidth` props; only Button supports them.
@@ -77,11 +77,17 @@ function buildProps(config: ButtonConfig, startIcon: ReturnType<typeof getIconBy
   if (loading) props.push('loading');
   if (disableRipple) props.push('disableRipple');
 
-  if (!config.iconOnly && startIcon) {
+  const spinnerSize = size === 'small' ? 16 : size === 'large' ? 24 : 20;
+  if (!config.iconOnly && loading && loadingShowText && loadingPosition === 'start') {
+    props.push(`startIcon={<CircularProgress size={${spinnerSize}} sx={{ color: 'inherit' }} />}`);
+  } else if (!config.iconOnly && startIcon) {
     const iconName = startIcon.importPath.split('/').pop() || 'Icon';
     props.push(`startIcon={<${iconName} />}`);
   }
-  if (!config.iconOnly && endIcon) {
+
+  if (!config.iconOnly && loading && loadingShowText && loadingPosition === 'end') {
+    props.push(`endIcon={<CircularProgress size={${spinnerSize}} sx={{ color: 'inherit' }} />}`);
+  } else if (!config.iconOnly && endIcon) {
     const iconName = endIcon.importPath.split('/').pop() || 'Icon';
     props.push(`endIcon={<${iconName} />}`);
   }
@@ -123,19 +129,35 @@ export function generateCode(config: ButtonConfig, options: CodeGenOptions): str
     : [startIcon, endIcon].filter((icon): icon is NonNullable<typeof icon> => Boolean(icon));
 
   let elementJsx: string;
+
   if (config.iconOnly) {
     const iconOnlyProps = props.filter((p) => !p.startsWith('startIcon') && !p.startsWith('endIcon'));
     const iconName = iconForIconOnly ? iconForIconOnly.importPath.split('/').pop() || 'Icon' : null;
-    const iconChild = iconName ? `<${iconName} />` : '{/* choose an icon */}';
+    let iconChild: string;
+    if (config.loading) {
+      const spinnerSize = config.size === 'small' ? 16 : config.size === 'large' ? 24 : 20;
+      iconChild = `<CircularProgress size={${spinnerSize}} sx={{ color: 'inherit' }} />`;
+    } else {
+      iconChild = iconName ? `<${iconName} />` : '{/* choose an icon */}';
+    }
     elementJsx =
       iconOnlyProps.length > 0
         ? `<IconButton\n${indentLines(iconOnlyProps.join('\n'), 2)}\n>\n  ${iconChild}\n</IconButton>`
         : `<IconButton>\n  ${iconChild}\n</IconButton>`;
   } else {
+    const spinnerSize = config.size === 'small' ? 16 : config.size === 'large' ? 24 : 20;
+    let buttonContent: string;
+
+    if (config.loading && !config.loadingShowText) {
+      buttonContent = `<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>\n    <CircularProgress size={${spinnerSize}} sx={{ color: 'inherit' }} />\n  </Box>`;
+    } else {
+      buttonContent = config.label;
+    }
+
     elementJsx =
       props.length > 0
-        ? `<Button\n${indentLines(props.join('\n'), 2)}\n>\n  ${config.label}\n</Button>`
-        : `<Button>${config.label}</Button>`;
+        ? `<Button\n${indentLines(props.join('\n'), 2)}\n>\n  ${buttonContent}\n</Button>`
+        : `<Button>${buttonContent}</Button>`;
   }
 
   const importLines: string[] = [];
@@ -145,6 +167,16 @@ export function generateCode(config: ButtonConfig, options: CodeGenOptions): str
     } else {
       importLines.push(`import Button from '@mui/material/Button';`);
     }
+
+    if (config.loading && !config.loadingShowText) {
+      importLines.push(`import CircularProgress from '@mui/material/CircularProgress';`);
+      if (!config.iconOnly) {
+        importLines.push(`import Box from '@mui/material/Box';`);
+      }
+    } else if (config.loading && config.loadingShowText && !config.iconOnly) {
+      importLines.push(`import CircularProgress from '@mui/material/CircularProgress';`);
+    }
+
     for (const icon of usedIcons) {
       const iconName = icon.importPath.split('/').pop() || 'Icon';
       importLines.push(`import ${iconName} from '${icon.importPath}';`);

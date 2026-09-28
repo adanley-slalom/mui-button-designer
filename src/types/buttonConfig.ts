@@ -12,6 +12,8 @@ export type ButtonSize = 'small' | 'medium' | 'large';
 
 export type IconStyle = 'solid' | 'outlined';
 
+export type LoadingPosition = 'start' | 'end';
+
 export interface ButtonConfig {
   // Content
   label: string;
@@ -27,6 +29,8 @@ export interface ButtonConfig {
   customColor: string;
   disabled: boolean;
   loading: boolean;
+  loadingPosition: LoadingPosition;
+  loadingShowText: boolean;
 
   // Size & Spacing
   size: ButtonSize;
@@ -57,6 +61,8 @@ export const defaultButtonConfig: ButtonConfig = {
   customColor: '#6C5CE7',
   disabled: false,
   loading: false,
+  loadingPosition: 'start',
+  loadingShowText: true,
 
   size: 'medium',
   fullWidth: false,
