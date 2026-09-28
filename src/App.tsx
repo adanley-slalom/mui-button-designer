@@ -13,25 +13,6 @@ import { CodePanel } from './components/CodePanel';
 const appTheme = createTheme({
   palette: {
     mode: 'light',
-    primary: {
-      main: '#6366f1',
-      light: '#818cf8',
-      dark: '#4f46e5',
-    },
-    secondary: {
-      main: '#06b6d4',
-      light: '#22d3ee',
-      dark: '#0891b2',
-    },
-    error: {
-      main: '#ef4444',
-    },
-    success: {
-      main: '#10b981',
-    },
-    warning: {
-      main: '#f97316',
-    },
     background: {
       default: '#f8f7ff',
       paper: '#ffffff',
