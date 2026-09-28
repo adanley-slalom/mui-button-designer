@@ -243,7 +243,7 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Box sx={{ flex: 1, ml: 1.25, mr: 1.25 }}>
+          <Box sx={{ flex: 1, ml: 3, mr: 1.25 }}>
             <Slider
               value={config.minWidth ?? 0}
               min={0}
@@ -270,7 +270,7 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Box sx={{ flex: 1, ml: 1.25, mr: 1.25 }}>
+          <Box sx={{ flex: 1, ml: 3, mr: 1.25 }}>
             <Slider
               value={config.borderRadius}
               min={0}
@@ -297,7 +297,7 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Box sx={{ flex: 1, ml: 1.25, mr: 1.25 }}>
+          <Box sx={{ flex: 1, ml: 3, mr: 1.25 }}>
             <Slider
               value={config.elevation}
               min={0}
