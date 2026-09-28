@@ -49,12 +49,10 @@ export function CodePanel() {
       >
         <Typography variant="h6">Code</Typography>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <Box sx={{ px: '0.75rem' }}>
-            <ToggleButtonGroup value={language} exclusive size="small" onChange={(_, v) => v && setLanguage(v)}>
-              <ToggleButton value="tsx">TS</ToggleButton>
-              <ToggleButton value="jsx">JS</ToggleButton>
-            </ToggleButtonGroup>
-          </Box>
+          <ToggleButtonGroup value={language} exclusive size="small" onChange={(_, v) => v && setLanguage(v)} sx={{ px: '0.75rem', '& .MuiToggleButton-root': { px: '0.75rem' } }}>
+            <ToggleButton value="tsx">TS</ToggleButton>
+            <ToggleButton value="jsx">JS</ToggleButton>
+          </ToggleButtonGroup>
           <FormControlLabel
             control={<Switch size="small" checked={includeImports} onChange={(e) => setIncludeImports(e.target.checked)} />}
             label="Imports"
