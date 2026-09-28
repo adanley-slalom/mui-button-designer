@@ -228,48 +228,57 @@ export function ControlPanel() {
           label="Full width"
         />
 
-        <Box>
-          <Typography variant="caption" color="text.secondary">
-            Min width: {config.minWidth ?? 'auto'}
-          </Typography>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+          <Box sx={{ px: 1.5, py: 0.75, bgcolor: '#f3f4f6', borderRadius: 1, minWidth: 60, textAlign: 'center' }}>
+            <Typography variant="caption" sx={{ fontWeight: 600 }}>
+              {config.minWidth ?? 'auto'}
+            </Typography>
+          </Box>
           <Slider
             value={config.minWidth ?? 0}
             min={0}
             max={400}
             step={8}
             onChange={(_, v) => set('minWidth', (v as number) === 0 ? null : (v as number))}
+            sx={{ flex: 1 }}
           />
-        </Box>
+        </Stack>
       </Section>
 
         <Section title="Shape" defaultExpanded={false}>
-        <Box>
-          <Typography variant="caption" color="text.secondary">
-            Border radius: {config.borderRadius}px
-          </Typography>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+          <Box sx={{ px: 1.5, py: 0.75, bgcolor: '#f3f4f6', borderRadius: 1, minWidth: 60, textAlign: 'center' }}>
+            <Typography variant="caption" sx={{ fontWeight: 600 }}>
+              {config.borderRadius}px
+            </Typography>
+          </Box>
           <Slider
             value={config.borderRadius}
             min={0}
             max={32}
             step={1}
             onChange={(_, v) => set('borderRadius', v as number)}
+            sx={{ flex: 1 }}
           />
-        </Box>
+        </Stack>
       </Section>
 
         <Section title="Elevation & Effects" defaultExpanded={false}>
-        <Box>
-          <Typography variant="caption" color="text.secondary">
-            Elevation: {config.elevation}
-          </Typography>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+          <Box sx={{ px: 1.5, py: 0.75, bgcolor: '#f3f4f6', borderRadius: 1, minWidth: 60, textAlign: 'center' }}>
+            <Typography variant="caption" sx={{ fontWeight: 600 }}>
+              {config.elevation}
+            </Typography>
+          </Box>
           <Slider
             value={config.elevation}
             min={0}
             max={24}
             step={1}
             onChange={(_, v) => set('elevation', v as number)}
+            sx={{ flex: 1 }}
           />
-        </Box>
+        </Stack>
         <FormControlLabel
           control={
             <Switch checked={config.disableRipple} onChange={(e) => set('disableRipple', e.target.checked)} />
