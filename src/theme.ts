@@ -76,14 +76,12 @@ export function getAppTheme(mode: ColorMode): Theme {
             '&:before': {
               display: 'none',
             },
-            boxShadow: isDark ? '0 2px 8px rgba(0, 0, 0, 0.3)' : '0 2px 8px rgba(99, 102, 241, 0.08)',
-            border: `1px solid ${isDark ? '#33333e' : '#e5e7eb'}`,
+            border: 'none',
+            boxShadow: 'none',
+            backgroundColor: 'transparent',
             marginBottom: '10px',
-            borderRadius: '12px !important',
+            borderRadius: '0 !important',
             transition: 'all 0.2s ease',
-            '&:hover': {
-              boxShadow: isDark ? '0 4px 12px rgba(0, 0, 0, 0.4)' : '0 4px 12px rgba(99, 102, 241, 0.12)',
-            },
           },
         },
       },

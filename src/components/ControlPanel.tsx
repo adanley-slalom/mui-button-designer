@@ -79,7 +79,7 @@ export function ControlPanel() {
         </Button>
       </Stack>
 
-      <Box sx={{ flex: 1, overflowY: 'auto', px: 2, py: 2 }}>
+      <Box sx={{ flex: 1, overflowY: 'auto', px: 2, py: 2, backgroundColor: (theme) => theme.palette.mode === 'dark' ? 'rgba(35, 35, 51, 0.4)' : 'rgba(248, 247, 255, 0.6)' }}>
           <Section title="Content">
         <TextField
           label="Label"
