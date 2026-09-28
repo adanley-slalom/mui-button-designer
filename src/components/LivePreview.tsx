@@ -106,7 +106,7 @@ export function LivePreview() {
           alignItems: 'center',
           justifyContent: 'space-between',
           borderBottom: '2px solid #f3f4f6',
-          background: 'linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%)',
+          background: 'linear-gradient(135deg, #f8f7ff 0%, #f0f9ff 100%)',
           flexShrink: 0,
         }}
       >
