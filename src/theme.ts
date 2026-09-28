@@ -63,6 +63,13 @@ export function getAppTheme(mode: ColorMode): Theme {
           },
         },
       },
+      MuiToolbar: {
+        styleOverrides: {
+          root: {
+            minHeight: '56px !important',
+          },
+        },
+      },
       MuiAccordion: {
         styleOverrides: {
           root: {
