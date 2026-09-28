@@ -41,6 +41,7 @@ const appTheme = createTheme({
       fontOpticalSizing: 'auto',
     },
     caption: {
+      fontSize: '0.75rem',
       fontVariationSettings: '"slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0',
       fontOpticalSizing: 'auto',
     },
@@ -116,6 +117,14 @@ const appTheme = createTheme({
         root: {
           borderRadius: '6px',
           fontWeight: 600,
+        },
+      },
+    },
+    MuiFormControlLabel: {
+      styleOverrides: {
+        label: {
+          fontSize: '0.875rem',
+          fontWeight: 500,
         },
       },
     },
