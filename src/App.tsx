@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import { ControlPanel } from './components/ControlPanel';
