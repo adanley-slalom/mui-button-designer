@@ -228,7 +228,7 @@ export function ControlPanel() {
           label="Full width"
         />
 
-        <Stack direction="row" sx={{ alignItems: 'center', gap: 1.25 }}>
+        <Stack direction="row" sx={{ alignItems: 'center' }}>
           <TextField
             select
             size="small"
@@ -243,7 +243,7 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Box sx={{ flex: 1, mr: 1.25 }}>
+          <Box sx={{ flex: 1, ml: 1.25, mr: 1.25 }}>
             <Slider
               value={config.minWidth ?? 0}
               min={0}
@@ -256,7 +256,7 @@ export function ControlPanel() {
       </Section>
 
         <Section title="Shape" defaultExpanded={false}>
-        <Stack direction="row" sx={{ alignItems: 'center', gap: 1.25 }}>
+        <Stack direction="row" sx={{ alignItems: 'center' }}>
           <TextField
             select
             size="small"
@@ -270,7 +270,7 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Box sx={{ flex: 1, mr: 1.25 }}>
+          <Box sx={{ flex: 1, ml: 1.25, mr: 1.25 }}>
             <Slider
               value={config.borderRadius}
               min={0}
@@ -283,7 +283,7 @@ export function ControlPanel() {
       </Section>
 
         <Section title="Elevation & Effects" defaultExpanded={false}>
-        <Stack direction="row" sx={{ alignItems: 'center', gap: 1.25 }}>
+        <Stack direction="row" sx={{ alignItems: 'center' }}>
           <TextField
             select
             size="small"
@@ -297,7 +297,7 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Box sx={{ flex: 1, mr: 1.25 }}>
+          <Box sx={{ flex: 1, ml: 1.25, mr: 1.25 }}>
             <Slider
               value={config.elevation}
               min={0}
