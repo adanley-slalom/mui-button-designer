@@ -135,6 +135,13 @@ const appTheme = createTheme({
         },
       },
     },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.9rem',
+        },
+      },
+    },
   },
 });
 
