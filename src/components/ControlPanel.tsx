@@ -237,7 +237,7 @@ export function ControlPanel() {
             sx={{ minWidth: 80, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
           >
             <MenuItem value={0}>auto</MenuItem>
-            {[8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 96, 112, 128, 160, 200, 240, 280, 320, 360, 400].map((v) => (
+            {Array.from({ length: 51 }, (_, i) => i * 8).filter(v => v > 0).map((v) => (
               <MenuItem key={v} value={v}>
                 {v}px
               </MenuItem>
@@ -263,7 +263,7 @@ export function ControlPanel() {
             onChange={(e) => set('borderRadius', Number(e.target.value))}
             sx={{ minWidth: 80, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
           >
-            {[0, 4, 8, 12, 14, 16, 20, 24, 28, 32].map((v) => (
+            {Array.from({ length: 33 }, (_, i) => i).map((v) => (
               <MenuItem key={v} value={v}>
                 {v}
               </MenuItem>
@@ -289,7 +289,7 @@ export function ControlPanel() {
             onChange={(e) => set('elevation', Number(e.target.value))}
             sx={{ minWidth: 80, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
           >
-            {[0, 2, 4, 6, 8, 12, 16, 20, 24].map((v) => (
+            {Array.from({ length: 25 }, (_, i) => i).map((v) => (
               <MenuItem key={v} value={v}>
                 {v}
               </MenuItem>
