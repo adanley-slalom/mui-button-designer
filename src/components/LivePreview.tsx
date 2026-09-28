@@ -78,15 +78,42 @@ export function LivePreview() {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
+        backgroundColor: '#ffffff',
       }}
     >
-      <Stack direction="row" sx={{ px: 2, py: 1.5, alignItems: 'center', justifyContent: 'space-between' }}>
-        <Typography variant="h6">Live Preview</Typography>
-        <ToggleButtonGroup value={canvas} exclusive size="small" onChange={(_, v) => v && setCanvas(v)}>
-          <ToggleButton value="light">
+      <Stack
+        direction="row"
+        sx={{
+          px: 3,
+          py: 2.5,
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          borderBottom: '1px solid #e0e0e0',
+          backgroundColor: '#f9f9f9',
+          flexShrink: 0,
+        }}
+      >
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', color: 'text.primary' }}>
+          Live Preview
+        </Typography>
+        <ToggleButtonGroup
+          value={canvas}
+          exclusive
+          size="small"
+          onChange={(_, v) => v && setCanvas(v)}
+          sx={{
+            '& .MuiToggleButton-root': {
+              borderColor: '#e0e0e0',
+              '&.Mui-selected': {
+                backgroundColor: '#f0f0f0',
+              },
+            },
+          }}
+        >
+          <ToggleButton value="light" title="Light mode">
             <LightModeIcon fontSize="small" />
           </ToggleButton>
-          <ToggleButton value="dark">
+          <ToggleButton value="dark" title="Dark mode">
             <DarkModeIcon fontSize="small" />
           </ToggleButton>
         </ToggleButtonGroup>
@@ -100,11 +127,10 @@ export function LivePreview() {
           justifyContent: 'center',
           bgcolor: canvasBackground[canvas],
           transition: 'background-color 0.2s ease',
-          m: 2,
-          mt: 0,
+          m: 3,
           borderRadius: 2,
-          border: '1px solid',
-          borderColor: 'divider',
+          border: '1px solid #e0e0e0',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
         }}
       >
         {config.iconOnly ? (
@@ -152,17 +178,29 @@ export function LivePreview() {
         )}
       </Box>
 
-      <Stack direction="row" spacing={1} sx={{ px: 2, pb: 2, alignItems: 'center' }}>
-        <Typography variant="caption" color="text.secondary">
-          Contrast ratio {ratio.toFixed(2)}:1
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{
+          px: 3,
+          py: 2,
+          borderTop: '1px solid #e0e0e0',
+          backgroundColor: '#f9f9f9',
+          alignItems: 'center',
+          flexShrink: 0,
+        }}
+      >
+        <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
+          Contrast: {ratio.toFixed(2)}:1
         </Typography>
         <Chip
           size="small"
           label={level}
           color={level === 'Fail' ? 'error' : level === 'AA' ? 'warning' : 'success'}
+          variant="outlined"
         />
         {config.iconOnly && !config.ariaLabel && (
-          <Chip size="small" color="error" label="Missing aria-label" />
+          <Chip size="small" color="error" label="Missing aria-label" variant="outlined" />
         )}
       </Stack>
     </Box>

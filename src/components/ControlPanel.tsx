@@ -41,15 +41,35 @@ export function ControlPanel() {
   const reset = useButtonConfigStore((s) => s.reset);
 
   return (
-    <Box sx={{ height: '100%', overflowY: 'auto' }}>
-      <Stack direction="row" sx={{ px: 2, py: 1.5, alignItems: 'center', justifyContent: 'space-between' }}>
-        <Typography variant="h6">Controls</Typography>
-        <Button size="small" startIcon={<RestartAltIcon />} onClick={reset}>
+    <Box sx={{ height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+      <Stack
+        direction="row"
+        sx={{
+          px: 3,
+          py: 2.5,
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          borderBottom: '1px solid #e0e0e0',
+          backgroundColor: '#f9f9f9',
+          flexShrink: 0,
+        }}
+      >
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', color: 'text.primary' }}>
+          Controls
+        </Typography>
+        <Button
+          size="small"
+          variant="text"
+          startIcon={<RestartAltIcon />}
+          onClick={reset}
+          sx={{ textTransform: 'none', fontWeight: 500 }}
+        >
           Reset
         </Button>
       </Stack>
 
-      <Section title="Content">
+      <Box sx={{ flex: 1, overflowY: 'auto', px: 2, py: 2 }}>
+          <Section title="Content">
         <TextField
           label="Label"
           size="small"
@@ -87,7 +107,7 @@ export function ControlPanel() {
         </Stack>
       </Section>
 
-      <Section title="Variant & Color">
+        <Section title="Variant & Color">
         <ToggleButtonGroup
           value={config.variant}
           exclusive
@@ -183,7 +203,7 @@ export function ControlPanel() {
         )}
       </Section>
 
-      <Section title="Size & Spacing" defaultExpanded={false}>
+        <Section title="Size & Spacing" defaultExpanded={false}>
         <ToggleButtonGroup
           value={config.size}
           exclusive
@@ -215,7 +235,7 @@ export function ControlPanel() {
         </Box>
       </Section>
 
-      <Section title="Shape" defaultExpanded={false}>
+        <Section title="Shape" defaultExpanded={false}>
         <Box>
           <Typography variant="caption" color="text.secondary">
             Border radius: {config.borderRadius}px
@@ -230,7 +250,7 @@ export function ControlPanel() {
         </Box>
       </Section>
 
-      <Section title="Elevation & Effects" defaultExpanded={false}>
+        <Section title="Elevation & Effects" defaultExpanded={false}>
         <Box>
           <Typography variant="caption" color="text.secondary">
             Elevation: {config.elevation}
@@ -251,7 +271,7 @@ export function ControlPanel() {
         />
       </Section>
 
-      <Section title="Accessibility" defaultExpanded={false}>
+        <Section title="Accessibility" defaultExpanded={false}>
         <TextField
           label="aria-label"
           size="small"
@@ -262,6 +282,7 @@ export function ControlPanel() {
           fullWidth
         />
       </Section>
+      </Box>
     </Box>
   );
 }
