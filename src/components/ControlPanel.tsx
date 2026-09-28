@@ -9,7 +9,6 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -230,21 +229,20 @@ export function ControlPanel() {
         />
 
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <FormControl size="small" sx={{ minWidth: 80 }}>
-            <Select
-              value={config.minWidth ?? 0}
-              onChange={(e) => set('minWidth', (e.target.value as number) === 0 ? null : (e.target.value as number))}
-              input={<OutlinedInput />}
-              sx={{ bgcolor: '#f3f4f6' }}
-            >
-              <MenuItem value={0}>auto</MenuItem>
-              {[8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 96, 112, 128, 160, 200, 240, 280, 320, 360, 400].map((v) => (
-                <MenuItem key={v} value={v}>
-                  {v}px
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <TextField
+            select
+            size="small"
+            value={config.minWidth ?? 0}
+            onChange={(e) => set('minWidth', (Number(e.target.value)) === 0 ? null : Number(e.target.value))}
+            sx={{ minWidth: 80, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
+          >
+            <MenuItem value={0}>auto</MenuItem>
+            {[8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 96, 112, 128, 160, 200, 240, 280, 320, 360, 400].map((v) => (
+              <MenuItem key={v} value={v}>
+                {v}px
+              </MenuItem>
+            ))}
+          </TextField>
           <Slider
             value={config.minWidth ?? 0}
             min={0}
@@ -258,20 +256,19 @@ export function ControlPanel() {
 
         <Section title="Shape" defaultExpanded={false}>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <FormControl size="small" sx={{ minWidth: 80 }}>
-            <Select
-              value={config.borderRadius}
-              onChange={(e) => set('borderRadius', e.target.value as number)}
-              input={<OutlinedInput />}
-              sx={{ bgcolor: '#f3f4f6' }}
-            >
-              {[0, 4, 8, 12, 14, 16, 20, 24, 28, 32].map((v) => (
-                <MenuItem key={v} value={v}>
-                  {v}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <TextField
+            select
+            size="small"
+            value={config.borderRadius}
+            onChange={(e) => set('borderRadius', Number(e.target.value))}
+            sx={{ minWidth: 80, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
+          >
+            {[0, 4, 8, 12, 14, 16, 20, 24, 28, 32].map((v) => (
+              <MenuItem key={v} value={v}>
+                {v}
+              </MenuItem>
+            ))}
+          </TextField>
           <Slider
             value={config.borderRadius}
             min={0}
@@ -285,20 +282,19 @@ export function ControlPanel() {
 
         <Section title="Elevation & Effects" defaultExpanded={false}>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <FormControl size="small" sx={{ minWidth: 80 }}>
-            <Select
-              value={config.elevation}
-              onChange={(e) => set('elevation', e.target.value as number)}
-              input={<OutlinedInput />}
-              sx={{ bgcolor: '#f3f4f6' }}
-            >
-              {[0, 2, 4, 6, 8, 12, 16, 20, 24].map((v) => (
-                <MenuItem key={v} value={v}>
-                  {v}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <TextField
+            select
+            size="small"
+            value={config.elevation}
+            onChange={(e) => set('elevation', Number(e.target.value))}
+            sx={{ minWidth: 80, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
+          >
+            {[0, 2, 4, 6, 8, 12, 16, 20, 24].map((v) => (
+              <MenuItem key={v} value={v}>
+                {v}
+              </MenuItem>
+            ))}
+          </TextField>
           <Slider
             value={config.elevation}
             min={0}
