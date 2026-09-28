@@ -228,7 +228,7 @@ export function ControlPanel() {
           label="Full width"
         />
 
-        <Stack direction="row" sx={{ alignItems: 'center', gap: 2, pr: 5 }}>
+        <Stack direction="row" sx={{ alignItems: 'center', gap: 2 }}>
           <TextField
             select
             size="small"
@@ -243,19 +243,20 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Slider
-            value={config.minWidth ?? 0}
-            min={0}
-            max={400}
-            step={8}
-            onChange={(_, v) => set('minWidth', (v as number) === 0 ? null : (v as number))}
-            sx={{ flex: 1 }}
-          />
+          <Box sx={{ flex: 1, mr: 3 }}>
+            <Slider
+              value={config.minWidth ?? 0}
+              min={0}
+              max={400}
+              step={8}
+              onChange={(_, v) => set('minWidth', (v as number) === 0 ? null : (v as number))}
+            />
+          </Box>
         </Stack>
       </Section>
 
         <Section title="Shape" defaultExpanded={false}>
-        <Stack direction="row" sx={{ alignItems: 'center', gap: 2, pr: 5 }}>
+        <Stack direction="row" sx={{ alignItems: 'center', gap: 2 }}>
           <TextField
             select
             size="small"
@@ -269,19 +270,20 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Slider
-            value={config.borderRadius}
-            min={0}
-            max={32}
-            step={1}
-            onChange={(_, v) => set('borderRadius', v as number)}
-            sx={{ flex: 1 }}
-          />
+          <Box sx={{ flex: 1, mr: 3 }}>
+            <Slider
+              value={config.borderRadius}
+              min={0}
+              max={32}
+              step={1}
+              onChange={(_, v) => set('borderRadius', v as number)}
+            />
+          </Box>
         </Stack>
       </Section>
 
         <Section title="Elevation & Effects" defaultExpanded={false}>
-        <Stack direction="row" sx={{ alignItems: 'center', gap: 2, pr: 5 }}>
+        <Stack direction="row" sx={{ alignItems: 'center', gap: 2 }}>
           <TextField
             select
             size="small"
@@ -295,14 +297,15 @@ export function ControlPanel() {
               </MenuItem>
             ))}
           </TextField>
-          <Slider
-            value={config.elevation}
-            min={0}
-            max={24}
-            step={1}
-            onChange={(_, v) => set('elevation', v as number)}
-            sx={{ flex: 1 }}
-          />
+          <Box sx={{ flex: 1, mr: 3 }}>
+            <Slider
+              value={config.elevation}
+              min={0}
+              max={24}
+              step={1}
+              onChange={(_, v) => set('elevation', v as number)}
+            />
+          </Box>
         </Stack>
         <FormControlLabel
           control={
