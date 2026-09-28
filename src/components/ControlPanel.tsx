@@ -234,7 +234,7 @@ export function ControlPanel() {
             size="small"
             value={config.minWidth ?? 0}
             onChange={(e) => set('minWidth', (Number(e.target.value)) === 0 ? null : Number(e.target.value))}
-            sx={{ width: 90, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
+            sx={{ width: 90, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
           >
             <MenuItem value={0}>auto</MenuItem>
             {Array.from({ length: 51 }, (_, i) => i * 8).filter(v => v > 0).map((v) => (
@@ -262,7 +262,7 @@ export function ControlPanel() {
             size="small"
             value={config.borderRadius}
             onChange={(e) => set('borderRadius', Number(e.target.value))}
-            sx={{ width: 90, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
+            sx={{ width: 90, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
           >
             {Array.from({ length: 33 }, (_, i) => i).map((v) => (
               <MenuItem key={v} value={v}>
@@ -289,7 +289,7 @@ export function ControlPanel() {
             size="small"
             value={config.elevation}
             onChange={(e) => set('elevation', Number(e.target.value))}
-            sx={{ width: 90, bgcolor: '#f3f4f6', '& .MuiOutlinedInput-root': { bgcolor: '#f3f4f6' }, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
+            sx={{ width: 90, '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
           >
             {Array.from({ length: 25 }, (_, i) => i).map((v) => (
               <MenuItem key={v} value={v}>
