@@ -86,6 +86,7 @@ export function LivePreview() {
         sx={{
           px: 3,
           py: 2.5,
+          minHeight: 64,
           alignItems: 'center',
           justifyContent: 'space-between',
           borderBottom: '2px solid #f3f4f6',
