@@ -292,6 +292,15 @@ export function ControlPanel() {
             ))}
           </Select>
         </FormControl>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={config.textTransformUppercase}
+              onChange={(e) => set('textTransformUppercase', e.target.checked)}
+            />
+          }
+          label="Uppercase"
+        />
       </Section>
 
       <Section title="Accessibility" defaultExpanded={false}>

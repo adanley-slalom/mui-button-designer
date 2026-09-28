@@ -16,7 +16,7 @@ function hexAlphaSuffix(alpha: number): string {
 
 function buildSxEntries(config: ButtonConfig): string[] {
   const entries: string[] = [];
-  const { colorMode, customColor, variant, borderRadius, elevation, minWidth, fontFamily } = config;
+  const { colorMode, customColor, variant, borderRadius, elevation, minWidth, fontFamily, textTransformUppercase } = config;
 
   // Map Google Font names to font-family values
   const fontFamilyMap: Record<string, string> = {
@@ -34,6 +34,10 @@ function buildSxEntries(config: ButtonConfig): string[] {
 
   if (fontFamily !== 'Roboto') {
     entries.push(`fontFamily: '${fontFamilyMap[fontFamily]}'`);
+  }
+
+  if (!textTransformUppercase) {
+    entries.push(`textTransform: 'none'`);
   }
 
   if (colorMode === 'custom') {

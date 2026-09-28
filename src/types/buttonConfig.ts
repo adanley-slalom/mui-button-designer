@@ -23,7 +23,6 @@ export interface ButtonConfig {
   endIcon: string | null;
   iconStyle: IconStyle;
   iconOnly: boolean;
-  fontFamily: GoogleFont;
 
   // Variant & Color
   variant: ButtonVariant;
@@ -49,6 +48,10 @@ export interface ButtonConfig {
 
   // Accessibility
   ariaLabel: string;
+
+  // Typography
+  fontFamily: GoogleFont;
+  textTransformUppercase: boolean;
 }
 
 export const defaultButtonConfig: ButtonConfig = {
@@ -57,7 +60,6 @@ export const defaultButtonConfig: ButtonConfig = {
   endIcon: null,
   iconStyle: 'solid',
   iconOnly: false,
-  fontFamily: 'Roboto',
 
   variant: 'contained',
   colorMode: 'theme',
@@ -78,4 +80,7 @@ export const defaultButtonConfig: ButtonConfig = {
   disableRipple: false,
 
   ariaLabel: '',
+
+  fontFamily: 'Roboto',
+  textTransformUppercase: true,
 };
