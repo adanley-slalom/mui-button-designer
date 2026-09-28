@@ -56,7 +56,7 @@ export function ControlPanel() {
           height: 70,
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '2px solid',
+          borderBottom: '1px solid',
           borderColor: 'divider',
           background: (theme) =>
             theme.palette.mode === 'dark'
