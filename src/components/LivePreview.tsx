@@ -88,12 +88,12 @@ export function LivePreview() {
           py: 2.5,
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid #e0e0e0',
-          backgroundColor: '#f9f9f9',
+          borderBottom: '2px solid #f3f4f6',
+          background: 'linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%)',
           flexShrink: 0,
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', color: 'text.primary' }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', background: 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           Live Preview
         </Typography>
         <ToggleButtonGroup

@@ -49,12 +49,12 @@ export function ControlPanel() {
           py: 2.5,
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid #e0e0e0',
-          backgroundColor: '#f9f9f9',
+          borderBottom: '2px solid #f3f4f6',
+          background: 'linear-gradient(135deg, #f8f7ff 0%, #f0f9ff 100%)',
           flexShrink: 0,
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', color: 'text.primary' }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', background: 'linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           Controls
         </Typography>
         <Button

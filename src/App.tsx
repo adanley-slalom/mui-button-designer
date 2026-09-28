@@ -14,13 +14,26 @@ const appTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#1976d2',
+      main: '#6366f1',
+      light: '#818cf8',
+      dark: '#4f46e5',
     },
     secondary: {
-      main: '#dc004e',
+      main: '#06b6d4',
+      light: '#22d3ee',
+      dark: '#0891b2',
+    },
+    error: {
+      main: '#ef4444',
+    },
+    success: {
+      main: '#10b981',
+    },
+    warning: {
+      main: '#f97316',
     },
     background: {
-      default: '#fafafa',
+      default: '#f8f7ff',
       paper: '#ffffff',
     },
   },
@@ -67,9 +80,9 @@ const appTheme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#ffffff',
-          color: '#000000',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.08)',
+          background: 'linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #ec4899 100%)',
+          color: '#ffffff',
+          boxShadow: '0 10px 30px rgba(99, 102, 241, 0.15)',
         },
       },
     },
@@ -79,9 +92,14 @@ const appTheme = createTheme({
           '&:before': {
             display: 'none',
           },
-          boxShadow: 'none',
-          border: '1px solid #e0e0e0',
-          marginBottom: '8px',
+          boxShadow: '0 2px 8px rgba(99, 102, 241, 0.08)',
+          border: '1px solid #e5e7eb',
+          marginBottom: '10px',
+          borderRadius: '12px !important',
+          transition: 'all 0.2s ease',
+          '&:hover': {
+            boxShadow: '0 4px 12px rgba(99, 102, 241, 0.12)',
+          },
         },
       },
     },
@@ -89,7 +107,44 @@ const appTheme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
-          fontWeight: 500,
+          fontWeight: 600,
+          borderRadius: '8px',
+          transition: 'all 0.3s ease',
+        },
+        contained: {
+          background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+          boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
+          '&:hover': {
+            boxShadow: '0 6px 20px rgba(99, 102, 241, 0.4)',
+            transform: 'translateY(-2px)',
+          },
+        },
+      },
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '8px',
+            '& fieldset': {
+              borderColor: '#e5e7eb',
+            },
+            '&:hover fieldset': {
+              borderColor: '#6366f1',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#6366f1',
+              boxShadow: '0 0 0 3px rgba(99, 102, 241, 0.1)',
+            },
+          },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: '6px',
+          fontWeight: 600,
         },
       },
     },
@@ -111,33 +166,35 @@ export default function App() {
         {/* Header */}
         <AppBar
           position="static"
-          elevation={1}
-          sx={{
-            borderBottom: '1px solid #e0e0e0',
-            background: '#ffffff',
-            color: 'text.primary',
-          }}
+          elevation={0}
         >
-          <Toolbar sx={{ py: 2, px: 3 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Toolbar sx={{ py: 3, px: 4 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <Box
                 sx={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: 1,
-                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  width: 40,
+                  height: 40,
+                  borderRadius: '10px',
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  backdropFilter: 'blur(10px)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
                 }}
               >
-                <Typography sx={{ color: 'white', fontWeight: 'bold', fontSize: '1.25rem' }}>
-                  Ⓜ
+                <Typography sx={{ color: 'white', fontWeight: 'bold', fontSize: '1.5rem' }}>
+                  ✨
                 </Typography>
               </Box>
-              <Typography variant="h6" sx={{ fontWeight: 700, color: 'text.primary' }}>
-                MUI Button Designer
-              </Typography>
+              <Box>
+                <Typography variant="h6" sx={{ fontWeight: 800, color: 'white', letterSpacing: '-0.5px' }}>
+                  MUI Button Designer
+                </Typography>
+                <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 500 }}>
+                  Design beautiful buttons with live preview
+                </Typography>
+              </Box>
             </Box>
           </Toolbar>
         </AppBar>
