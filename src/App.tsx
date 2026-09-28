@@ -107,17 +107,7 @@ const appTheme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
-          fontWeight: 600,
-          borderRadius: '8px',
-          transition: 'all 0.3s ease',
-        },
-        contained: {
-          background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
-          boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
-          '&:hover': {
-            boxShadow: '0 6px 20px rgba(99, 102, 241, 0.4)',
-            transform: 'translateY(-2px)',
-          },
+          fontWeight: 500,
         },
       },
     },
