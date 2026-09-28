@@ -60,7 +60,7 @@ export function ControlPanel() {
           flexShrink: 0,
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, background: 'linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, color: '#6366f1' }}>
           Controls
         </Typography>
         <Button

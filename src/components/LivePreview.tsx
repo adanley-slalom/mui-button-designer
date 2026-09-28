@@ -110,7 +110,7 @@ export function LivePreview() {
           flexShrink: 0,
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, background: 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, color: '#f97316' }}>
           Live Preview
         </Typography>
         <ToggleButtonGroup
