@@ -249,7 +249,7 @@ export function ControlPanel() {
             max={400}
             step={8}
             onChange={(_, v) => set('minWidth', (v as number) === 0 ? null : (v as number))}
-            sx={{ flex: 1, ml: 1.5, mr: 5 }}
+            sx={{ flex: 1, ml: 1.5, mr: 10 }}
           />
         </Stack>
       </Section>
@@ -275,7 +275,7 @@ export function ControlPanel() {
             max={32}
             step={1}
             onChange={(_, v) => set('borderRadius', v as number)}
-            sx={{ flex: 1, ml: 1.5, mr: 5 }}
+            sx={{ flex: 1, ml: 1.5, mr: 10 }}
           />
         </Stack>
       </Section>
@@ -301,7 +301,7 @@ export function ControlPanel() {
             max={24}
             step={1}
             onChange={(_, v) => set('elevation', v as number)}
-            sx={{ flex: 1, ml: 1.5, mr: 5 }}
+            sx={{ flex: 1, ml: 1.5, mr: 10 }}
           />
         </Stack>
         <FormControlLabel
