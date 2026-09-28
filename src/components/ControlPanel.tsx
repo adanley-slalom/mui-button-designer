@@ -66,10 +66,22 @@ export function ControlPanel() {
           }
           label="Icon-only (IconButton)"
         />
-        <Stack direction="row" spacing={2}>
-          <IconPicker label="Start icon" value={config.startIcon} onChange={(v) => set('startIcon', v)} />
+        <Stack direction="column" spacing={2}>
+          <IconPicker
+            label="Start icon"
+            value={config.startIcon}
+            style={config.iconStyle}
+            onStyleChange={(style) => set('iconStyle', style)}
+            onChange={(v) => set('startIcon', v)}
+          />
           {!config.iconOnly && (
-            <IconPicker label="End icon" value={config.endIcon} onChange={(v) => set('endIcon', v)} />
+            <IconPicker
+              label="End icon"
+              value={config.endIcon}
+              style={config.iconStyle}
+              onStyleChange={(style) => set('iconStyle', style)}
+              onChange={(v) => set('endIcon', v)}
+            />
           )}
         </Stack>
       </Section>

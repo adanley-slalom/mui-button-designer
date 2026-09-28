@@ -20,8 +20,8 @@ export function LivePreview() {
   const config = useButtonConfigStore((s) => s.config);
   const [canvas, setCanvas] = useState<'light' | 'dark'>('light');
 
-  const startIcon = getIconByName(config.startIcon);
-  const endIcon = getIconByName(config.endIcon);
+  const startIcon = getIconByName(config.startIcon, config.iconStyle);
+  const endIcon = getIconByName(config.endIcon, config.iconStyle);
 
   const sx = {
     ...(config.colorMode === 'custom' && config.variant === 'contained'

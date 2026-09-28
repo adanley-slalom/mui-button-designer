@@ -54,7 +54,7 @@ function buildSxEntries(config: ButtonConfig): string[] {
   return entries;
 }
 
-function buildProps(config: ButtonConfig, sxEntries: string[]): string[] {
+function buildProps(config: ButtonConfig, startIcon: ReturnType<typeof getIconByName> | undefined, endIcon: ReturnType<typeof getIconByName> | undefined, sxEntries: string[]): string[] {
   const props: string[] = [];
   const { variant, colorMode, color, size, disabled, loading, fullWidth, disableRipple, ariaLabel } =
     config;
@@ -77,13 +77,13 @@ function buildProps(config: ButtonConfig, sxEntries: string[]): string[] {
   if (loading) props.push('loading');
   if (disableRipple) props.push('disableRipple');
 
-  const startIcon = getIconByName(config.startIcon);
-  const endIcon = getIconByName(config.endIcon);
   if (!config.iconOnly && startIcon) {
-    props.push(`startIcon={<${startIcon.name}Icon />}`);
+    const iconName = startIcon.importPath.split('/').pop() || 'Icon';
+    props.push(`startIcon={<${iconName} />}`);
   }
   if (!config.iconOnly && endIcon) {
-    props.push(`endIcon={<${endIcon.name}Icon />}`);
+    const iconName = endIcon.importPath.split('/').pop() || 'Icon';
+    props.push(`endIcon={<${iconName} />}`);
   }
 
   if (ariaLabel) {
@@ -108,10 +108,12 @@ function indentLines(text: string, spaces: number): string {
 export function generateCode(config: ButtonConfig, options: CodeGenOptions): string {
   const { language, includeImports, includeWrapper } = options;
   const sxEntries = buildSxEntries(config);
-  const props = buildProps(config, sxEntries);
+  
+  const startIcon = getIconByName(config.startIcon, config.iconStyle);
+  const endIcon = getIconByName(config.endIcon, config.iconStyle);
+  
+  const props = buildProps(config, startIcon, endIcon, sxEntries);
 
-  const startIcon = getIconByName(config.startIcon);
-  const endIcon = getIconByName(config.endIcon);
   const iconForIconOnly = startIcon ?? endIcon;
 
   const usedIcons = config.iconOnly
@@ -123,7 +125,8 @@ export function generateCode(config: ButtonConfig, options: CodeGenOptions): str
   let elementJsx: string;
   if (config.iconOnly) {
     const iconOnlyProps = props.filter((p) => !p.startsWith('startIcon') && !p.startsWith('endIcon'));
-    const iconChild = iconForIconOnly ? `<${iconForIconOnly.name}Icon />` : '{/* choose an icon */}';
+    const iconName = iconForIconOnly ? iconForIconOnly.importPath.split('/').pop() || 'Icon' : null;
+    const iconChild = iconName ? `<${iconName} />` : '{/* choose an icon */}';
     elementJsx =
       iconOnlyProps.length > 0
         ? `<IconButton\n${indentLines(iconOnlyProps.join('\n'), 2)}\n>\n  ${iconChild}\n</IconButton>`
@@ -143,7 +146,8 @@ export function generateCode(config: ButtonConfig, options: CodeGenOptions): str
       importLines.push(`import Button from '@mui/material/Button';`);
     }
     for (const icon of usedIcons) {
-      importLines.push(`import ${icon.name}Icon from '${icon.importPath}';`);
+      const iconName = icon.importPath.split('/').pop() || 'Icon';
+      importLines.push(`import ${iconName} from '${icon.importPath}';`);
     }
   }
 

@@ -10,11 +10,14 @@ export type ThemeColorName =
 
 export type ButtonSize = 'small' | 'medium' | 'large';
 
+export type IconStyle = 'solid' | 'outlined';
+
 export interface ButtonConfig {
   // Content
   label: string;
   startIcon: string | null;
   endIcon: string | null;
+  iconStyle: IconStyle;
   iconOnly: boolean;
 
   // Variant & Color
@@ -45,6 +48,7 @@ export const defaultButtonConfig: ButtonConfig = {
   label: 'Button',
   startIcon: null,
   endIcon: null,
+  iconStyle: 'solid',
   iconOnly: false,
 
   variant: 'contained',
