@@ -14,7 +14,7 @@ export type IconStyle = 'solid' | 'outlined';
 
 export type LoadingPosition = 'start' | 'end';
 
-export type GoogleFont = 'Roboto' | 'Inter' | 'Poppins' | 'Lato' | 'Open Sans' | 'Playfair Display' | 'Raleway' | 'Montserrat' | 'Source Sans Pro' | 'Work Sans';
+export type GoogleFont = 'Roboto' | 'Inter' | 'Poppins' | 'Open Sans' | 'Raleway' | 'Montserrat' | 'Work Sans';
 
 export interface ButtonConfig {
   // Content

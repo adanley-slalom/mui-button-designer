@@ -26,7 +26,7 @@ import type { ThemeColorName, GoogleFont } from '../types/buttonConfig';
 import { fontWeightsByFamily } from '../constants/fontWeights';
 
 const THEME_COLORS: ThemeColorName[] = ['primary', 'secondary', 'success', 'error', 'info', 'warning'];
-const GOOGLE_FONTS: GoogleFont[] = ['Roboto', 'Inter', 'Poppins', 'Lato', 'Open Sans', 'Playfair Display', 'Raleway', 'Montserrat', 'Source Sans Pro', 'Work Sans'];
+const GOOGLE_FONTS: GoogleFont[] = ['Roboto', 'Inter', 'Poppins', 'Open Sans', 'Raleway', 'Montserrat', 'Work Sans'];
 
 function Section({ title, defaultExpanded = true, children }: { title: string; defaultExpanded?: boolean; children: React.ReactNode }) {
   return (

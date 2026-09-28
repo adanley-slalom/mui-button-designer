@@ -29,12 +29,9 @@ export function LivePreview() {
     'Roboto': '"Roboto", sans-serif',
     'Inter': '"Inter", sans-serif',
     'Poppins': '"Poppins", sans-serif',
-    'Lato': '"Lato", sans-serif',
     'Open Sans': '"Open Sans", sans-serif',
-    'Playfair Display': '"Playfair Display", serif',
     'Raleway': '"Raleway", sans-serif',
     'Montserrat': '"Montserrat", sans-serif',
-    'Source Sans Pro': '"Source Sans Pro", sans-serif',
     'Work Sans': '"Work Sans", sans-serif',
   };
 
