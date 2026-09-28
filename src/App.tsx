@@ -142,6 +142,23 @@ const appTheme = createTheme({
         },
       },
     },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.9rem',
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.9rem',
+        },
+        input: {
+          fontSize: '0.9rem',
+        },
+      },
+    },
   },
 });
 
