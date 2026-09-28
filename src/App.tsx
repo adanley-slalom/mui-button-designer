@@ -186,7 +186,7 @@ export default function App() {
                   MUI Button Designer
                 </Typography>
                 <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.8)', fontWeight: 500 }}>
-                  Design beautiful buttons with live preview
+                  Customize MUI buttons and export the code
                 </Typography>
               </Box>
             </Box>
