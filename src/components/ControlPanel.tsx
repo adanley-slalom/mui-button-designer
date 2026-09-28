@@ -5,6 +5,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -18,9 +22,10 @@ import { HexColorPicker } from 'react-colorful';
 
 import { useButtonConfigStore } from '../store/useButtonConfigStore';
 import { IconPicker } from './IconPicker';
-import type { ThemeColorName } from '../types/buttonConfig';
+import type { ThemeColorName, GoogleFont } from '../types/buttonConfig';
 
 const THEME_COLORS: ThemeColorName[] = ['primary', 'secondary', 'success', 'error', 'info', 'warning'];
+const GOOGLE_FONTS: GoogleFont[] = ['Roboto', 'Inter', 'Poppins', 'Lato', 'Open Sans', 'Playfair Display', 'Raleway', 'Montserrat', 'Source Sans Pro', 'Work Sans'];
 
 function Section({ title, defaultExpanded = true, children }: { title: string; defaultExpanded?: boolean; children: React.ReactNode }) {
   return (
@@ -272,7 +277,24 @@ export function ControlPanel() {
         />
       </Section>
 
-        <Section title="Accessibility" defaultExpanded={false}>
+      <Section title="Typography" defaultExpanded={false}>
+        <FormControl fullWidth size="small">
+          <InputLabel>Font Family</InputLabel>
+          <Select
+            value={config.fontFamily}
+            label="Font Family"
+            onChange={(e) => set('fontFamily', e.target.value as GoogleFont)}
+          >
+            {GOOGLE_FONTS.map((font) => (
+              <MenuItem key={font} value={font}>
+                {font}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Section>
+
+      <Section title="Accessibility" defaultExpanded={false}>
         <TextField
           label="aria-label"
           size="small"

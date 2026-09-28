@@ -14,6 +14,8 @@ export type IconStyle = 'solid' | 'outlined';
 
 export type LoadingPosition = 'start' | 'end';
 
+export type GoogleFont = 'Roboto' | 'Inter' | 'Poppins' | 'Lato' | 'Open Sans' | 'Playfair Display' | 'Raleway' | 'Montserrat' | 'Source Sans Pro' | 'Work Sans';
+
 export interface ButtonConfig {
   // Content
   label: string;
@@ -21,6 +23,7 @@ export interface ButtonConfig {
   endIcon: string | null;
   iconStyle: IconStyle;
   iconOnly: boolean;
+  fontFamily: GoogleFont;
 
   // Variant & Color
   variant: ButtonVariant;
@@ -54,6 +57,7 @@ export const defaultButtonConfig: ButtonConfig = {
   endIcon: null,
   iconStyle: 'solid',
   iconOnly: false,
+  fontFamily: 'Roboto',
 
   variant: 'contained',
   colorMode: 'theme',

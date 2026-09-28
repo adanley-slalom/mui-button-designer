@@ -24,7 +24,22 @@ export function LivePreview() {
   const startIcon = getIconByName(config.startIcon, config.iconStyle);
   const endIcon = getIconByName(config.endIcon, config.iconStyle);
 
+  // Map Google Font names to font-family values
+  const fontFamilyMap: Record<string, string> = {
+    'Roboto': '"Roboto", sans-serif',
+    'Inter': '"Inter", sans-serif',
+    'Poppins': '"Poppins", sans-serif',
+    'Lato': '"Lato", sans-serif',
+    'Open Sans': '"Open Sans", sans-serif',
+    'Playfair Display': '"Playfair Display", serif',
+    'Raleway': '"Raleway", sans-serif',
+    'Montserrat': '"Montserrat", sans-serif',
+    'Source Sans Pro': '"Source Sans Pro", sans-serif',
+    'Work Sans': '"Work Sans", sans-serif',
+  };
+
   const sx = {
+    fontFamily: fontFamilyMap[config.fontFamily],
     ...(config.colorMode === 'custom' && config.variant === 'contained'
       ? { backgroundColor: config.customColor, color: '#fff', '&:hover': { filter: 'brightness(0.92)' } }
       : {}),

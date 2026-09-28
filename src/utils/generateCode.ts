@@ -16,7 +16,25 @@ function hexAlphaSuffix(alpha: number): string {
 
 function buildSxEntries(config: ButtonConfig): string[] {
   const entries: string[] = [];
-  const { colorMode, customColor, variant, borderRadius, elevation, minWidth } = config;
+  const { colorMode, customColor, variant, borderRadius, elevation, minWidth, fontFamily } = config;
+
+  // Map Google Font names to font-family values
+  const fontFamilyMap: Record<string, string> = {
+    'Roboto': '"Roboto", sans-serif',
+    'Inter': '"Inter", sans-serif',
+    'Poppins': '"Poppins", sans-serif',
+    'Lato': '"Lato", sans-serif',
+    'Open Sans': '"Open Sans", sans-serif',
+    'Playfair Display': '"Playfair Display", serif',
+    'Raleway': '"Raleway", sans-serif',
+    'Montserrat': '"Montserrat", sans-serif',
+    'Source Sans Pro': '"Source Sans Pro", sans-serif',
+    'Work Sans': '"Work Sans", sans-serif',
+  };
+
+  if (fontFamily !== 'Roboto') {
+    entries.push(`fontFamily: '${fontFamilyMap[fontFamily]}'`);
+  }
 
   if (colorMode === 'custom') {
     if (variant === 'contained') {
