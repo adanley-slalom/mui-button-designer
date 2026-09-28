@@ -38,8 +38,8 @@ export default function App() {
             position="static"
             elevation={0}
           >
-            <Toolbar sx={{ py: 3, px: 4, justifyContent: 'space-between' }}>
-              <Typography variant="h6" sx={{ fontWeight: 800, color: 'white', letterSpacing: '-0.5px' }}>
+            <Toolbar sx={{ py: 1, px: 4, justifyContent: 'space-between', minHeight: 56 }}>
+              <Typography sx={{ fontSize: '1rem', fontWeight: 800, color: 'white', letterSpacing: '-0.5px' }}>
                 MUI Button Designer
               </Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
