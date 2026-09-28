@@ -127,6 +127,14 @@ const appTheme = createTheme({
         },
       },
     },
+    MuiToggleButton: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.75rem',
+          fontWeight: 500,
+        },
+      },
+    },
   },
 });
 
