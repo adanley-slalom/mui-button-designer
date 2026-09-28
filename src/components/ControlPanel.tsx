@@ -46,8 +46,8 @@ export function ControlPanel() {
         direction="row"
         sx={{
           px: 3,
-          py: 2.5,
-          minHeight: 64,
+          py: 0,
+          height: 70,
           alignItems: 'center',
           justifyContent: 'space-between',
           borderBottom: '2px solid #f3f4f6',
@@ -55,7 +55,7 @@ export function ControlPanel() {
           flexShrink: 0,
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', background: 'linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, background: 'linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           Controls
         </Typography>
         <Button

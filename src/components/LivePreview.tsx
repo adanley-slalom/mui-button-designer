@@ -85,8 +85,8 @@ export function LivePreview() {
         direction="row"
         sx={{
           px: 3,
-          py: 2.5,
-          minHeight: 64,
+          py: 0,
+          height: 70,
           alignItems: 'center',
           justifyContent: 'space-between',
           borderBottom: '2px solid #f3f4f6',
@@ -94,7 +94,7 @@ export function LivePreview() {
           flexShrink: 0,
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', background: 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, background: 'linear-gradient(135deg, #f97316 0%, #ec4899 100%)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
           Live Preview
         </Typography>
         <ToggleButtonGroup
