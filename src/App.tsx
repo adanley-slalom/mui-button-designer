@@ -181,23 +181,6 @@ export default function App() {
         >
           <Toolbar sx={{ py: 3, px: 4 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Box
-                sx={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: '10px',
-                  background: 'rgba(255, 255, 255, 0.2)',
-                  backdropFilter: 'blur(10px)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  border: '1px solid rgba(255, 255, 255, 0.3)',
-                }}
-              >
-                <Typography sx={{ color: 'white', fontWeight: 'bold', fontSize: '1.5rem' }}>
-                  ✨
-                </Typography>
-              </Box>
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, color: 'white', letterSpacing: '-0.5px' }}>
                   MUI Button Designer
