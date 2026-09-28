@@ -228,7 +228,7 @@ export function ControlPanel() {
           label="Full width"
         />
 
-        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pr: 1.5 }}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pl: 1.5, pr: 1.5 }}>
           <TextField
             select
             size="small"
@@ -255,7 +255,7 @@ export function ControlPanel() {
       </Section>
 
         <Section title="Shape" defaultExpanded={false}>
-        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pr: 1.5 }}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pl: 1.5, pr: 1.5 }}>
           <TextField
             select
             size="small"
@@ -281,7 +281,7 @@ export function ControlPanel() {
       </Section>
 
         <Section title="Elevation & Effects" defaultExpanded={false}>
-        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pr: 1.5 }}>
+        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', pl: 1.5, pr: 1.5 }}>
           <TextField
             select
             size="small"
