@@ -25,20 +25,45 @@ const appTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Google Sans Flex", sans-serif',
     h6: {
       fontWeight: 600,
       fontSize: '1.25rem',
+      fontVariationSettings: '"slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0',
+      fontOpticalSizing: 'auto',
     },
     subtitle2: {
       fontWeight: 600,
       fontSize: '0.875rem',
+      fontVariationSettings: '"slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0',
+      fontOpticalSizing: 'auto',
+    },
+    body1: {
+      fontVariationSettings: '"slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0',
+      fontOpticalSizing: 'auto',
+    },
+    body2: {
+      fontVariationSettings: '"slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0',
+      fontOpticalSizing: 'auto',
+    },
+    caption: {
+      fontVariationSettings: '"slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0',
+      fontOpticalSizing: 'auto',
     },
   },
   shape: {
     borderRadius: 8,
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          fontFamily: '"Google Sans Flex", sans-serif',
+          fontOpticalSizing: 'auto',
+          fontVariationSettings: '"slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0',
+        },
+      },
+    },
     MuiAppBar: {
       styleOverrides: {
         root: {
