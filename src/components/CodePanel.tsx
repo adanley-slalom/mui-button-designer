@@ -76,6 +76,7 @@ export function CodePanel() {
               component="pre"
               sx={{
                 ...style,
+                backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#121212' : style.backgroundColor),
                 m: 0,
                 p: 2,
                 borderRadius: 2,
