@@ -9,6 +9,7 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -229,11 +230,21 @@ export function ControlPanel() {
         />
 
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <Box sx={{ px: 1.5, py: 0.75, bgcolor: '#f3f4f6', borderRadius: 1, minWidth: 60, textAlign: 'center' }}>
-            <Typography variant="caption" sx={{ fontWeight: 600 }}>
-              {config.minWidth ?? 'auto'}
-            </Typography>
-          </Box>
+          <FormControl size="small" sx={{ minWidth: 80 }}>
+            <Select
+              value={config.minWidth ?? 0}
+              onChange={(e) => set('minWidth', (e.target.value as number) === 0 ? null : (e.target.value as number))}
+              input={<OutlinedInput />}
+              sx={{ bgcolor: '#f3f4f6' }}
+            >
+              <MenuItem value={0}>auto</MenuItem>
+              {[8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 96, 112, 128, 160, 200, 240, 280, 320, 360, 400].map((v) => (
+                <MenuItem key={v} value={v}>
+                  {v}px
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <Slider
             value={config.minWidth ?? 0}
             min={0}
@@ -247,11 +258,20 @@ export function ControlPanel() {
 
         <Section title="Shape" defaultExpanded={false}>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <Box sx={{ px: 1.5, py: 0.75, bgcolor: '#f3f4f6', borderRadius: 1, minWidth: 60, textAlign: 'center' }}>
-            <Typography variant="caption" sx={{ fontWeight: 600 }}>
-              {config.borderRadius}px
-            </Typography>
-          </Box>
+          <FormControl size="small" sx={{ minWidth: 80 }}>
+            <Select
+              value={config.borderRadius}
+              onChange={(e) => set('borderRadius', e.target.value as number)}
+              input={<OutlinedInput />}
+              sx={{ bgcolor: '#f3f4f6' }}
+            >
+              {[0, 4, 8, 12, 14, 16, 20, 24, 28, 32].map((v) => (
+                <MenuItem key={v} value={v}>
+                  {v}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <Slider
             value={config.borderRadius}
             min={0}
@@ -265,11 +285,20 @@ export function ControlPanel() {
 
         <Section title="Elevation & Effects" defaultExpanded={false}>
         <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-          <Box sx={{ px: 1.5, py: 0.75, bgcolor: '#f3f4f6', borderRadius: 1, minWidth: 60, textAlign: 'center' }}>
-            <Typography variant="caption" sx={{ fontWeight: 600 }}>
-              {config.elevation}
-            </Typography>
-          </Box>
+          <FormControl size="small" sx={{ minWidth: 80 }}>
+            <Select
+              value={config.elevation}
+              onChange={(e) => set('elevation', e.target.value as number)}
+              input={<OutlinedInput />}
+              sx={{ bgcolor: '#f3f4f6' }}
+            >
+              {[0, 2, 4, 6, 8, 12, 16, 20, 24].map((v) => (
+                <MenuItem key={v} value={v}>
+                  {v}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
           <Slider
             value={config.elevation}
             min={0}
