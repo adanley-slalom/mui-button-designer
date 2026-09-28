@@ -110,7 +110,7 @@ export function LivePreview() {
           flexShrink: 0,
         }}
       >
-        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, color: '#6366f1' }}>
+        <Typography variant="h6" sx={{ fontWeight: 700, fontSize: '1rem', lineHeight: 1, color: (theme) => theme.palette.mode === 'dark' ? '#e5e7eb' : '#6366f1' }}>
           Live Preview
         </Typography>
       </Stack>
