@@ -51,6 +51,7 @@ export interface ButtonConfig {
 
   // Typography
   fontFamily: GoogleFont;
+  fontWeight: number;
   textTransformUppercase: boolean;
 }
 
@@ -82,5 +83,6 @@ export const defaultButtonConfig: ButtonConfig = {
   ariaLabel: '',
 
   fontFamily: 'Roboto',
+  fontWeight: 500,
   textTransformUppercase: true,
 };

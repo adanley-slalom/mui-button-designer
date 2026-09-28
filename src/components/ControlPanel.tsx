@@ -23,6 +23,7 @@ import { HexColorPicker } from 'react-colorful';
 import { useButtonConfigStore } from '../store/useButtonConfigStore';
 import { IconPicker } from './IconPicker';
 import type { ThemeColorName, GoogleFont } from '../types/buttonConfig';
+import { fontWeightsByFamily } from '../constants/fontWeights';
 
 const THEME_COLORS: ThemeColorName[] = ['primary', 'secondary', 'success', 'error', 'info', 'warning'];
 const GOOGLE_FONTS: GoogleFont[] = ['Roboto', 'Inter', 'Poppins', 'Lato', 'Open Sans', 'Playfair Display', 'Raleway', 'Montserrat', 'Source Sans Pro', 'Work Sans'];
@@ -288,6 +289,20 @@ export function ControlPanel() {
             {GOOGLE_FONTS.map((font) => (
               <MenuItem key={font} value={font}>
                 {font}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl fullWidth size="small">
+          <InputLabel>Font Weight</InputLabel>
+          <Select
+            value={config.fontWeight}
+            label="Font Weight"
+            onChange={(e) => set('fontWeight', e.target.value as number)}
+          >
+            {fontWeightsByFamily[config.fontFamily].map((weight) => (
+              <MenuItem key={weight} value={weight}>
+                {weight}
               </MenuItem>
             ))}
           </Select>

@@ -40,6 +40,7 @@ export function LivePreview() {
 
   const sx = {
     fontFamily: fontFamilyMap[config.fontFamily],
+    fontWeight: config.fontWeight,
     textTransform: config.textTransformUppercase ? 'uppercase' : 'none',
     ...(config.colorMode === 'custom' && config.variant === 'contained'
       ? { backgroundColor: config.customColor, color: '#fff', '&:hover': { filter: 'brightness(0.92)' } }
