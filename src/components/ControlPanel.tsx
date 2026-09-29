@@ -30,7 +30,7 @@ const GOOGLE_FONTS: GoogleFont[] = ['Figtree', 'Inter', 'Lexend', 'Montserrat', 
 
 function Section({ title, defaultExpanded = true, children }: { title: string; defaultExpanded?: boolean; children: React.ReactNode }) {
   return (
-    <Accordion defaultExpanded={defaultExpanded} disableGutters>
+    <Accordion defaultExpanded={defaultExpanded} disableGutters sx={{ border: '1px solid', borderColor: 'divider' }}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography variant="subtitle2">{title}</Typography>
       </AccordionSummary>
@@ -79,7 +79,7 @@ export function ControlPanel() {
         </Button>
       </Stack>
 
-      <Box sx={{ flex: 1, overflowY: 'auto', px: 2, py: 2, backgroundColor: (theme) => theme.palette.mode === 'dark' ? 'rgba(35, 35, 51, 0.4)' : 'rgba(248, 247, 255, 0.6)' }}>
+      <Box sx={{ flex: 1, overflowY: 'auto', px: 2, py: 2 }}>
           <Section title="Content">
         <TextField
           label="Label"
